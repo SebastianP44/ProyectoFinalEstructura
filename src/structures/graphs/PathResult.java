@@ -6,7 +6,7 @@ import java.util.Set;
 public class PathResult<T> {
 
     private final Set<T> visitados;
-    private final List<T> path; // 👈 Cambiado a List<T> para preservar el ORDEN del camino 🛣️
+    private final List<T> path; //  Cambiado a List<T> para preservar el ORDEN del camino 
 
     // Constructor 🏗️
     public PathResult(Set<T> visitados, List<T> path) {
@@ -14,7 +14,7 @@ public class PathResult<T> {
         this.path = path;
     }
 
-    // Getters 🔑
+    // Getters 
     public Set<T> getVisitados() {
         return visitados;
     }
@@ -30,6 +30,6 @@ public class PathResult<T> {
         
         return "PathResult:" +
                "\n  • Visitados: " + visitados +
-               "\n  • Resultado: " + (hayCamino ? "path = " + path : "No se encontró camino entre los nodos 🛑");
+               "\n  • Resultado: " + (hayCamino ? "path = " + path : "No se encontró camino entre los nodos ");
     }
 }

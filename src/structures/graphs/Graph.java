@@ -20,7 +20,7 @@ public class Graph<T> {
         graph.putIfAbsent(node, new HashSet<>());
     }
 
-    // Arista Bidireccional (Grafo No Dirigido) 🔄
+    // Arista Bidireccional (Grafo No Dirigido) 
     public void addEdge(T v1, T v2) {
         Node<T> nv1 = new Node<>(v1);
         Node<T> nv2 = new Node<>(v2);
@@ -30,7 +30,7 @@ public class Graph<T> {
         graph.get(nv2).add(nv1);
     }
 
-    // Arista Unidireccional (Grafo Dirigido) ➡️ (Nombre corregido a camelCase)
+    // Arista Unidireccional (Grafo Dirigido) (Nombre corregido a camelCase)
     public void addEdgeUni(T v1, T v2) {
         Node<T> nv1 = new Node<>(v1);
         Node<T> nv2 = new Node<>(v2);
@@ -39,7 +39,7 @@ public class Graph<T> {
         graph.get(nv1).add(nv2);
     }
 
-    // Obtener los vecinos de un nodo dado 👥
+    // Obtener los vecinos de un nodo dado 
     public Set<Node<T>> getVecinos(T data) {
         return graph.getOrDefault(
                 new Node<>(data),
@@ -47,7 +47,7 @@ public class Graph<T> {
         );
     }
 
-    // Método para obtener todos los nodos (útil para iteraciones o BFS/DFS) 🗺️
+    // Método para obtener todos los nodos (útil para iteraciones o BFS/DFS) 
     public Set<Node<T>> getNodos() {
         return graph.keySet();
     }
