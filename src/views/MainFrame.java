@@ -6,9 +6,6 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -18,199 +15,257 @@ import javax.swing.JMenuItem;
 
 public class MainFrame extends JFrame {
 
-        private MapPanl mapPanel;
-        private MapController controller;
-        private JLabel lblInformacion;
+    private MapPanl mapPanel;
+    private MapController controller;
+    private JLabel lblInformacion;
 
-        public MainFrame() {
+    public MainFrame() {
 
-                setTitle(
-                                "Mapa Interactivo - Grafos");
+        setTitle(
+                "Mapa Interactivo - Grafos"
+        );
 
-                setSize(
-                                1000,
-                                750);
+        setSize(
+                1000,
+                750
+        );
 
-                setDefaultCloseOperation(
-                                JFrame.DO_NOTHING_ON_CLOSE);
+        setDefaultCloseOperation(
+                JFrame.EXIT_ON_CLOSE
+        );
 
-                setLocationRelativeTo(
-                                null);
+        setLocationRelativeTo(
+                null
+        );
 
-                setLayout(
-                                new BorderLayout());
+        setLayout(
+                new BorderLayout()
+        );
 
-                mapPanel = new MapPanl(
-                                "map.png");
+        mapPanel =
+                new MapPanl(
+                        "map.png"
+                );
 
-                add(
-                                mapPanel,
-                                BorderLayout.CENTER);
+        add(
+                mapPanel,
+                BorderLayout.CENTER
+        );
 
-                lblInformacion = new JLabel(
-                                "Selecciona una opción del menú para comenzar...");
+        lblInformacion =
+                new JLabel(
+                        "Selecciona una opción del menú para comenzar..."
+                );
 
-                lblInformacion.setFont(
-                                new Font(
-                                                "SansSerif",
-                                                Font.BOLD,
-                                                13));
+        lblInformacion.setFont(
+                new Font(
+                        "SansSerif",
+                        Font.BOLD,
+                        13
+                )
+        );
 
-                lblInformacion.setOpaque(
-                                true);
+        lblInformacion.setOpaque(
+                true
+        );
 
-                lblInformacion.setBackground(
-                                new Color(
-                                                245,
-                                                245,
-                                                245));
+        lblInformacion.setBackground(
+                new Color(
+                        245,
+                        245,
+                        245
+                )
+        );
 
-                lblInformacion.setBorder(
-                                BorderFactory.createEmptyBorder(
-                                                8,
-                                                12,
-                                                8,
-                                                12));
+        lblInformacion.setBorder(
+                BorderFactory.createEmptyBorder(
+                        8,
+                        12,
+                        8,
+                        12
+                )
+        );
 
-                add(
-                                lblInformacion,
-                                BorderLayout.SOUTH);
+        add(
+                lblInformacion,
+                BorderLayout.SOUTH
+        );
 
-                controller = new MapController(
-                                this);
+        controller =
+                new MapController(
+                        this
+                );
 
-                controller.cargarGrafo();
+        JMenuBar menuBar =
+                new JMenuBar();
 
-                addWindowListener(new WindowAdapter() {
-                        @Override
-                        public void windowClosing(WindowEvent e){
-                                controller.guardarGrafo();
-                                dispose(); 
-                                System.exit(0);
-                        }
-                });
+        JMenu menu =
+                new JMenu(
+                        "Opciones"
+                );
 
-                JMenuBar menuBar = new JMenuBar();
+        JMenuItem agregarUnaArista =
+                new JMenuItem(
+                        "Agregar Nodo y Arista Unidireccional"
+                );
 
-                JMenu menu = new JMenu(
-                                "Opciones");
+        JMenuItem agregarDosAristas =
+                new JMenuItem(
+                        "Agregar Nodo y Arista Bidireccional"
+                );
 
-                JMenuItem agregarUnaArista = new JMenuItem(
-                                "Agregar Nodo y Arista Unidireccional");
+        JMenuItem buscarBfs =
+                new JMenuItem(
+                        "Buscar en amplitud BFS"
+                );
 
-                JMenuItem agregarDosAristas = new JMenuItem(
-                                "Agregar Nodo y Arista Bidireccional");
+        JMenuItem buscarDfs =
+                new JMenuItem(
+                        "Buscar en profundidad DFS"
+                );
 
-                JMenuItem buscarBfs = new JMenuItem(
-                                "Buscar en amplitud BFS");
+        JMenuItem borrarNodo =
+                new JMenuItem(
+                        "Borrar nodo"
+                );
 
-                JMenuItem buscarDfs = new JMenuItem(
-                                "Buscar en profundidad DFS");
+        JMenuItem guardarGrafo =
+                new JMenuItem(
+                        "Guardar grafo"
+                );
 
-                JMenuItem borrarNodo = new JMenuItem(
-                                "Borrar nodo");
+        JMenuItem cargarGrafo =
+                new JMenuItem(
+                        "Cargar grafo"
+                );
 
-                JMenuItem guardarGrafo = new JMenuItem(
-                                "Guardar grafo");
+        JMenuItem salir =
+                new JMenuItem(
+                        "Salir"
+                );
 
-                JMenuItem cargarGrafo = new JMenuItem(
-                                "Cargar grafo");
+        menu.add(
+                agregarUnaArista
+        );
 
-                JMenuItem salir = new JMenuItem(
-                                "Salir");
+        menu.add(
+                agregarDosAristas
+        );
 
-                menu.add(
-                                agregarUnaArista);
+        menu.add(
+                buscarBfs
+        );
 
-                menu.add(
-                                agregarDosAristas);
+        menu.add(
+                buscarDfs
+        );
 
-                menu.add(
-                                buscarBfs);
+        menu.add(
+                borrarNodo
+        );
 
-                menu.add(
-                                buscarDfs);
+        menu.addSeparator();
 
-                menu.add(
-                                borrarNodo);
+        menu.add(
+                guardarGrafo
+        );
 
-                menu.addSeparator();
+        menu.add(
+                cargarGrafo
+        );
 
-                menu.add(
-                                guardarGrafo);
+        menu.addSeparator();
 
-                menu.add(
-                                cargarGrafo);
+        menu.add(
+                salir
+        );
 
-                menu.addSeparator();
+        menuBar.add(
+                menu
+        );
 
-                menu.add(
-                                salir);
+        setJMenuBar(
+                menuBar
+        );
 
-                menuBar.add(
-                                menu);
+        agregarUnaArista.addActionListener(
+                e ->
+                        controller
+                                .activarAgregarAristaUni()
+        );
 
-                setJMenuBar(
-                                menuBar);
+        agregarDosAristas.addActionListener(
+                e ->
+                        controller
+                                .activarAgregarAristaBi()
+        );
 
-                agregarUnaArista.addActionListener(
-                                e -> controller
-                                                .activarAgregarAristaUni());
+        buscarBfs.addActionListener(
+                e ->
+                        controller
+                                .activarBusquedaBFS()
+        );
 
-                agregarDosAristas.addActionListener(
-                                e -> controller
-                                                .activarAgregarAristaBi());
+        buscarDfs.addActionListener(
+                e ->
+                        controller
+                                .activarBusquedaDFS()
+        );
 
-                buscarBfs.addActionListener(
-                                e -> controller
-                                                .activarBusquedaBFS());
+        borrarNodo.addActionListener(
+                e ->
+                        controller
+                                .activarBorrarNodo()
+        );
 
-                buscarDfs.addActionListener(
-                                e -> controller
-                                                .activarBusquedaDFS());
+        guardarGrafo.addActionListener(
+                e ->
+                        controller
+                                .guardarGrafo()
+        );
 
-                borrarNodo.addActionListener(
-                                e -> controller
-                                                .activarBorrarNodo());
+        cargarGrafo.addActionListener(
+                e ->
+                        controller
+                                .cargarGrafo()
+        );
 
-                guardarGrafo.addActionListener(
-                                e -> controller
-                                                .guardarGrafo());
+        salir.addActionListener(
+                e ->
+                        System.exit(
+                                0
+                        )
+        );
 
-                cargarGrafo.addActionListener(
-                                e -> controller
-                                                .cargarGrafo());
+        mapPanel.addMouseListener(
+                new MouseAdapter() {
 
-                salir.addActionListener(
-                                e ->{controller.guardarGrafo();
-                                        System.exit(0);
-                                });
+                    @Override
+                    public void mouseClicked(
+                            MouseEvent e
+                    ) {
 
-                mapPanel.addMouseListener(
-                                new MouseAdapter() {
+                        controller
+                                .manejarClicEnMapa(
+                                        e.getX(),
+                                        e.getY()
+                                );
+                    }
+                }
+        );
 
-                                        @Override
-                                        public void mouseClicked(
-                                                        MouseEvent e) {
+        setVisible(
+                true
+        );
+    }
 
-                                                controller
-                                                                .manejarClicEnMapa(
-                                                                                e.getX(),
-                                                                                e.getY());
-                                        }
-                                });
+    public MapPanl getMapPanel() {
 
-                setVisible(
-                                true);
-        }
+        return mapPanel;
+    }
 
-        public MapPanl getMapPanel() {
+    public JLabel getLblInformacion() {
 
-                return mapPanel;
-        }
-
-        public JLabel getLblInformacion() {
-
-                return lblInformacion;
-        }
+        return lblInformacion;
+    }
 }
