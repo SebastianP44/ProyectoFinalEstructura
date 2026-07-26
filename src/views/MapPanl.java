@@ -46,7 +46,7 @@ public class MapPanl extends JPanel {
         // Anti-aliasing para que todo se dibuje suave 
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-        // 1. Dibujar Imagen de Fondo 🖼️
+        // 1. Dibujar Imagen de Fondo 
         if (mapaImagen != null) {
             g2.drawImage(mapaImagen, 0, 0, getWidth(), getHeight(), this);
         }
