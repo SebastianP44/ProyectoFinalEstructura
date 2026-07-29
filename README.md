@@ -213,4 +213,4 @@ Con este proyecto pudimos ver como al transformar un mapa visual en puntos y con
 Demostramos que las estructuras de datos no son solo teoría, sino la base fundamental para crear aplicaciones útiles como navegadores GPS o simuladores de tráfico.
 
 ### Josue Calle: 
-Comprobamos visualmente cómo dos formas distintas de buscar (BFS y DFS) pueden encontrar caminos diferentes para llegar al mismo destino.
+Comprobamos visualmente cómo dos formas distintas de buscar (BFS y DFS) pueden encontrar caminos diferentes para llegar al mismo destino.6
